@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fakeshop
+  name: fakeshop
+spec:
+  selector:
+    matchLabels:
+      app: fakeshop
+  template:
+    metadata:
+      labels:
+        app: fakeshop
+    spec:
+      containers:
+      - image: psmetildes/fake-shop:1.0
+        name: fakeshops
+        ports:
+        - containerPort: 5000
+        envFrom:
+          - configMapRef:
+              name: fakeshop-config
+          - secretRef:
+              name: fakeshop-secret
+
+

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: fakeshop-config
+data:
+  DB_HOST: postgre
+  DB_USER: fakeshop
+  DB_NAME: fakeshop
+  FLASK_APP: index.py

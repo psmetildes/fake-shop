@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    db: postgre
+  name: postgre
+spec:
+  selector:
+    matchLabels:
+      db: postgre
+  template:
+    metadata:
+      labels:
+        db: postgre
+    spec:
+      containers:
+      - image: postgres:13.16
+        name: postgres
+        ports:
+        - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: postgre-config
+          - secretRef:
+              name: postgre-secret 
