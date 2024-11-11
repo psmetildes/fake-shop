@@ -61,5 +61,5 @@ jobs:
               ./k8s/fakeshop/svc-fakeshop.yaml
               ./k8s/fakeshop/deploy-fakeshop.yaml
               ./k8s/prometheus/monitoring.yaml
-           images: |
+            images: |
               psmetildes/fake-shop:v${{ github.run_number }}
