@@ -51,11 +51,7 @@ jobs:
       - name: Deploy dos manifestos no kubernetes
         uses: Azure/k8s-deploy@v5
         with:
-<<<<<<< HEAD
             manifests: |
-=======
-           manifests: |
->>>>>>> e3d3145 (feat: adiciona manifestos do kubernetes para deploy do grafana e prometheus)
               ./k8s/postgresql/configmap-postgre.yaml
               ./k8s/postgresql/deploy-postgre.yaml
               ./k8s/postgresql/secret-postgre.yaml
@@ -64,13 +60,6 @@ jobs:
               ./k8s/fakeshop/secret-fakeshop.yaml
               ./k8s/fakeshop/svc-fakeshop.yaml
               ./k8s/fakeshop/deploy-fakeshop.yaml
-<<<<<<< HEAD
-            images: |
-              psmetildes/fake-shop:v${{ github.run_number }}
-  
-=======
               ./k8s/prometheus/monitoring.yaml
            images: |
               psmetildes/fake-shop:v${{ github.run_number }}
-
->>>>>>> e3d3145 (feat: adiciona manifestos do kubernetes para deploy do grafana e prometheus)
