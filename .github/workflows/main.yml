@@ -47,4 +47,19 @@ jobs:
 
       - name: Configurar o kubectl
         run: aws eks update-kubeconfig --name eks-aula
+
+      - name: Deploy dos manifestos no kubernetes
+        uses: Azure/k8s-deploy@v5
+        with:
+            manifests: |
+              ./k8s/postgresql/configmap-postgre.yaml
+              ./k8s/postgresql/deploy-postgre.yaml
+              ./k8s/postgresql/secret-postgre.yaml
+              ./k8s/postgresql/svc-postgre.yaml
+              ./k8s/fakeshop/configmap-fakeshop.yaml
+              ./k8s/fakeshop/secret-fakeshop.yaml
+              ./k8s/fakeshop/svc-fakeshop.yaml
+              ./k8s/fakeshop/deploy-fakeshop.yaml
+            images: |
+              psmetildes/fake-shop:v${{ github.run_number }}
   
